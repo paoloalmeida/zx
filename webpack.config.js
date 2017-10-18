@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
   },
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    contentBase: path.resolve(__dirname, './app'),
   },
   module: {
     rules: [

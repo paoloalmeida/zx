@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "start": "./node_modules/.bin/webpack-dev-server --open"
+    "start": "./node_modules/.bin/webpack-dev-server --open",
+    "clear": "rimraf lib",
+    "copy": "copyfiles -u 1 app/index.html dist/ && copyfiles -u 1 app/images/*.png dist/",
+    "css": "minify --output dist/main.css app/main.css",
+    "build": "npm run clear && npm run css && npm run copy",
+    "build:min": "./node_modules/.bin/webpack --output-filename bundle.js -p",
+    "build:all": "npm run build && npm run build:min"
   },
   "author": "Paolo Almeida",
   "devDependencies": {
@@ -19,6 +25,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.0",
     "babel-runtime": "^6.26.0",
+    "copyfiles": "^1.2.0",
     "eslint": "^3.7.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-plugin-import": "^2.0.1",
@@ -28,6 +35,7 @@
     "graphql-tag": "^2.5.0",
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
+    "minifier": "^0.8.1",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
   }

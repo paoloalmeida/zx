@@ -9,6 +9,7 @@ export default function productList(products) {
   <img class="product-image" src="${product.productVariants[0].imageUrl}" alt="${product.productVariants[0].title}">
   <p class="product-price">${product.productVariants[0].price}</p>
   <button class="less">-</button>
+  <input type="text" class="item-amount" value="1"></input>
   <button class="more">+</button>
   </div>`).join('');
 
